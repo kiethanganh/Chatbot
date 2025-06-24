@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Flask Chatbot</title>
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="container">
+    <h1 class="title">🤖 Flask Chatbot</h1>
+    <div class="chatbox-container">
+      <div class="chatbox-header">
+        <div class="chatbox-controls">
+          <button onclick="newChat()" class="control-btn">New Chat</button>
+          <button onclick="showHistory()" class="control-btn">View History</button>
+        </div>
+      </div>
+      <div id="chatbox" class="chatbox">
+        <p class="botText"><span>Xin chào, tôi là Chatterbot.</span></p>
+      </div>
+    </div>
+    <div id="userInput" class="inputArea">
+      <input id="textInput" type="text" name="msg" placeholder="Type your message here..." />
+      <button id="buttonInput">Send</button>
+    </div>
+  </div>
+
+  <script>
+    let chatHistory = []; // Mảng lưu trữ các cuộc trò chuyện
+    let currentChatIndex = -1; // Chỉ số của cuộc trò chuyện hiện tại
+
+    // Hàm lưu cuộc trò chuyện hiện tại với tên từ tin nhắn đầu tiên của người dùng
+    function saveCurrentChat() {
+      let messages = [];
+      let firstUserMessage = null;
+      $("#chatbox p").each(function() {
+        let text = $(this).find("span").text();
+        let role = $(this).hasClass("userText") ? "user" : "bot";
+        if (role === "user" && !firstUserMessage) {
+          firstUserMessage = text; // Lấy tin nhắn đầu tiên của người dùng làm tên
+        }
+        messages.push({ role: role, text: text });
+      });
+      if (messages.length > 0 && firstUserMessage) {
+        chatHistory.push({ name: firstUserMessage.substring(0, 20) + (firstUserMessage.length > 20 ? '...' : ''), messages: messages });
+        currentChatIndex = chatHistory.length - 1;
+        if (chatHistory.length > 50) chatHistory.shift(); // Giới hạn 50 cuộc
+      }
+    }
+
+    // Hàm tải lại cuộc trò chuyện từ lịch sử
+    function loadChat(index) {
+      $("#chatbox").empty();
+      let messages = chatHistory[index].messages;
+      if (messages) {
+        messages.forEach(msg => {
+          let html = `<p class="${msg.role}Text"><span>${msg.text}</span></p>`;
+          $("#chatbox").append(html);
+        });
+        $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+      }
+    }
+
+    function getBotResponse() {
+      var rawText = $("#textInput").val();
+      if (!rawText.trim()) return;
+
+      var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+      $("#chatbox").append(userHtml);
+      $("#textInput").val("");
+      $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+
+      $.get("/get", { msg: rawText }).done(function(data) {
+        var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+        $("#chatbox").append(botHtml);
+        $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+      });
+    }
+
+    $("#textInput").keypress(function(e) {
+      if (e.which == 13) {
+        getBotResponse();
+      }
+    });
+
+    $("#buttonInput").click(function() {
+      getBotResponse();
+    });
+
+    function newChat() {
+      saveCurrentChat(); // Lưu cuộc trò chuyện hiện tại
+      $.post("/new_chat").done(function(data) {
+        $("#chatbox").html('<p class="botText"><span>Xin chào, tôi là Chatterbot.</span></p>');
+        $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+        alert(data.message);
+      });
+    }
+
+    function showHistory() {
+      saveCurrentChat(); // Lưu cuộc trò chuyện hiện tại trước khi xem lịch sử
+      $("#chatbox").html('<p class="botText"><span>Xin chào, tôi là Chatterbot.</span></p>');
+      if (chatHistory.length > 0) {
+        let historyHtml = '<p class="botText"><span>Lịch sử cuộc trò chuyện:</span></p>';
+        historyHtml += '<ul>';
+        chatHistory.forEach((chat, index) => {
+          historyHtml += `<li onclick="loadChat(${index})">${chat.name}</li>`;
+        });
+        historyHtml += '</ul>';
+        $("#chatbox").append(historyHtml);
+      } else {
+        $("#chatbox").append('<p class="botText"><span>Không có lịch sử cuộc trò chuyện.</span></p>');
+      }
+      $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+    }
+  </script>
+</body>
+</html>
