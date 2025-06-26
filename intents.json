@@ -7,9 +7,9 @@
     "keywords": ["tạm biệt", "bye", "hẹn gặp lại"],
     "responses": ["Tạm biệt bạn nhé!", "Hẹn gặp lại!"]
   },
-  "ask_time": {
-    "keywords": ["mấy giờ", "giờ hiện tại", "bây giờ là"],
-    "responses": ["Bây giờ là [thời gian hiện tại] nhé!", "Để mình xem... hiện tại là [thời gian hiện tại]!"]
+ "ask_weather": {
+    "keywords": ["thời tiết", "trời hôm nay", "trời thế nào"],
+    "responses": ["Trời hôm nay nắng đẹp!", "Có vẻ thời tiết rất dễ chịu hôm nay."]
   },
   "ask_name": {
     "keywords": ["bạn là ai", "tên bạn là", "tên bot"],
