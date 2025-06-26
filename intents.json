@@ -46,5 +46,9 @@
   "ask_history": {
     "keywords": ["lịch sử", "sự kiện lịch sử", "hỏi về quá khứ"],
     "responses": ["Lịch sử Việt Nam có rất nhiều sự kiện thú vị, như chiến thắng Điện Biên Phủ."]
+  },
+  "ask_vietnam_holidays": {
+    "keywords": ["ngày lễ việt nam", "tết", "nghỉ lễ lớn nhất việt nam"],
+    "responses": ["Tết Nguyên Đán là lễ lớn nhất, mọi người quây quần ăn bánh chưng, lì xì. Bạn thích lễ nào ở Việt Nam?", "Ngoài Tết, Việt Nam còn có lễ Quốc khánh 2/9, rất vui!"]
   }
 }
