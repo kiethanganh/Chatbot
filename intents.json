@@ -1,11 +1,7 @@
 {
   "chao_hoi": {
-    "keywords": ["xin chào", "hello", "hi", "chào bạn"],
+    "keywords": ["xin chào", "hello", "hi", "chào bạn","chào"],
     "responses": ["Chào bạn! Tôi có thể giúp gì?", "Xin chào, bạn cần hỗ trợ gì?"]
-  },
-  "ask_weather": {
-    "keywords": ["thời tiết", "trời hôm nay", "trời thế nào"],
-    "responses": ["Trời hôm nay nắng đẹp!", "Có vẻ thời tiết rất dễ chịu hôm nay."]
   },
   "goodbye": {
     "keywords": ["tạm biệt", "bye", "hẹn gặp lại"],
@@ -17,7 +13,7 @@
   },
   "ask_name": {
     "keywords": ["bạn là ai", "tên bạn là", "tên bot"],
-    "responses": ["Mình là Grok, chatbot thân thiện đây!", "Chào bạn, mình tên là Grok, rất vui được gặp!"]
+    "responses": ["Mình là Chatbot thân thiện đây!", "Chào bạn, mình tên là Chatbot Flask, rất vui được gặp!"]
   },
   "ask_help": {
     "keywords": ["giúp mình", "hỗ trợ", "cần giúp"],
@@ -32,19 +28,23 @@
     "responses": ["Tại sao con mèo lại chia tay với bạn trai? Vì nó phát hiện anh ta là... mèo lạ!", "Trà sữa thì ngọt, nhưng nụ cười bạn còn ngọt hơn!"]
   },
   "ask_vietnam_culture": {
-    "keywords": ["văn hóa Việt Nam", "truyền thống Việt Nam", "phong tục Việt"],
+    "keywords": ["văn hóa việt nam", "truyền thống việt nam", "phong tục việt"],
     "responses": ["Văn hóa Việt Nam rất phong phú, từ Tết Nguyên Đán đến áo dài truyền thống. Bạn muốn biết thêm về gì?", "Việt Nam nổi tiếng với phở, bánh mì và những lễ hội đậm chất truyền thống!"]
   },
   "ask_vietnam_food": {
-    "keywords": ["món ăn việt nam", "ẩm thực Việt", "ăn gì ở Việt Nam"],
-    "responses": ["Phở, bánh mì, bún chả... món nào cũng ngon! Bạn thích món Việt Nam nào nhất?", "Ẩm thực Việt Nam thì tuyệt vời, từ nước mắm đến bánh xèo giòn rụm!"]
+    "keywords": ["món ăn việt nam", "ẩm thực việt", "ăn gì ở việt nam"],
+    "responses": ["Phở, bánh mì, bún chả... món nào cũng ngon! Bạn thích trải nghiệm hãy dùng thử các món này", "Ẩm thực Việt Nam thì tuyệt vời, từ nước mắm đến bánh xèo giòn rụm!"]
   },
   "ask_vietnam_places": {
-    "keywords": ["địa điểm Việt Nam", "du lịch Việt Nam", "nơi đẹp ở Việt Nam"],
-    "responses": ["Việt Nam có Vịnh Hạ Long, Hội An cổ kính, hay Đà Lạt mộng mơ. Bạn muốn khám phá nơi nào?", "Từ Hà Nội sôi động đến Phú Quốc thơ mộng, Việt Nam có quá nhiều nơi đẹp để đi!"]
+    "keywords": ["địa điểm việt nam", "du lịch việt nam", "nơi đẹp ở việt nam"],
+    "responses": ["Việt Nam có Vịnh Hạ Long, Hội An cổ kính, hay Đà Lạt mộng mơ. Bạn hãy đi khám phá thử xem", "Từ Hà Nội sôi động đến Phú Quốc thơ mộng, Việt Nam có quá nhiều nơi đẹp để đi!"]
   },
   "ask_vietnam_language": {
     "keywords": ["tiếng việt", "ngôn ngữ việt nam", "học tiếng việt"],
-    "responses": ["Tiếng Việt thì thú vị lắm, có 6 thanh điệu đấy! Bạn muốn học câu gì bằng tiếng Việt?", "Xin chào, cảm ơn, tạm biệt – đó là vài từ cơ bản trong tiếng Việt!"]
+    "responses": ["Tiếng Việt thì thú vị lắm, Xin chào, Chào bạn, Bạn khỏe không ?, Bạn tên là gì? ", "Xin chào, cảm ơn, tạm biệt – đó là vài từ cơ bản trong tiếng Việt!"]
+  },
+  "ask_history": {
+    "keywords": ["lịch sử", "sự kiện lịch sử", "hỏi về quá khứ"],
+    "responses": ["Lịch sử Việt Nam có rất nhiều sự kiện thú vị, như chiến thắng Điện Biên Phủ."]
   }
 }
