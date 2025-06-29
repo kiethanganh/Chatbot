@@ -23,3 +23,4 @@ def get_weather(city: str) -> str:
         return f"Lỗi API: {response.get('message', 'Không tìm thấy thông tin thời tiết cho {city}')}"
     except requests.RequestException as e:
         return f"Lỗi kết nối: {str(e)}"
+

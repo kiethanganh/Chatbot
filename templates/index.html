@@ -28,10 +28,9 @@
   </div>
 
   <script>
-    let chatHistory = []; // Mảng lưu trữ các cuộc trò chuyện
-    let currentChatIndex = -1; // Chỉ số của cuộc trò chuyện hiện tại
+    let chatHistory = [];
+    let currentChatIndex = -1;
 
-    // Hàm lưu cuộc trò chuyện hiện tại với tên từ tin nhắn đầu tiên của người dùng
     function saveCurrentChat() {
       let messages = [];
       let firstUserMessage = null;
@@ -39,18 +38,17 @@
         let text = $(this).find("span").text();
         let role = $(this).hasClass("userText") ? "user" : "bot";
         if (role === "user" && !firstUserMessage) {
-          firstUserMessage = text; // Lấy tin nhắn đầu tiên của người dùng làm tên
+          firstUserMessage = text;
         }
         messages.push({ role: role, text: text });
       });
       if (messages.length > 0 && firstUserMessage) {
         chatHistory.push({ name: firstUserMessage.substring(0, 20) + (firstUserMessage.length > 20 ? '...' : ''), messages: messages });
         currentChatIndex = chatHistory.length - 1;
-        if (chatHistory.length > 50) chatHistory.shift(); // Giới hạn 50 cuộc
+        if (chatHistory.length > 50) chatHistory.shift();
       }
     }
 
-    // Hàm tải lại cuộc trò chuyện từ lịch sử
     function loadChat(index) {
       $("#chatbox").empty();
       let messages = chatHistory[index].messages;
@@ -90,7 +88,7 @@
     });
 
     function newChat() {
-      saveCurrentChat(); // Lưu cuộc trò chuyện hiện tại
+      saveCurrentChat();
       $.post("/new_chat").done(function(data) {
         $("#chatbox").html('<p class="botText"><span>Xin chào, tôi là Chatterbot.</span></p>');
         $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
@@ -99,7 +97,7 @@
     }
 
     function showHistory() {
-      saveCurrentChat(); // Lưu cuộc trò chuyện hiện tại trước khi xem lịch sử
+      saveCurrentChat();
       $("#chatbox").html('<p class="botText"><span>Xin chào, tôi là Chatterbot.</span></p>');
       if (chatHistory.length > 0) {
         let historyHtml = '<p class="botText"><span>Lịch sử cuộc trò chuyện:</span></p>';
