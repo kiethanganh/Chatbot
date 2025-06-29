@@ -2,3 +2,4 @@ Flask==3.1.0
 requests==2.32.3
 pytz==2025.2
 gunicorn
+feedparser==6.0.11
