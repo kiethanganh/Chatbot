@@ -31,52 +31,69 @@
     let chatHistory = [];
     let currentChatIndex = -1;
 
-    function saveCurrentChat() {
-      let messages = [];
-      let firstUserMessage = null;
-      $("#chatbox p").each(function() {
-        let text = $(this).find("span").text();
-        let role = $(this).hasClass("userText") ? "user" : "bot";
-        if (role === "user" && !firstUserMessage) {
-          firstUserMessage = text;
-        }
-        messages.push({ role: role, text: text });
-      });
-      if (messages.length > 0 && firstUserMessage) {
-        chatHistory.push({ name: firstUserMessage.substring(0, 20) + (firstUserMessage.length > 20 ? '...' : ''), messages: messages });
-        currentChatIndex = chatHistory.length - 1;
-        if (chatHistory.length > 50) chatHistory.shift();
-      }
+  function saveCurrentChat() {
+  let messages = [];
+  let firstUserMessage = null;
+
+  $("#chatbox").children().each(function () {
+    let $elem = $(this);
+    let html = $elem.prop("outerHTML"); // Lưu nguyên HTML đầy đủ
+
+    let role = "unknown";
+    if ($elem.hasClass("userText")) role = "user";
+    else if ($elem.hasClass("botText")) role = "bot";
+
+    if (role === "user" && !firstUserMessage) {
+      firstUserMessage = $elem.text();
     }
 
-    function loadChat(index) {
-      $("#chatbox").empty();
-      let messages = chatHistory[index].messages;
-      if (messages) {
-        messages.forEach(msg => {
-          let html = `<p class="${msg.role}Text"><span>${msg.text}</span></p>`;
-          $("#chatbox").append(html);
-        });
-        $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
-      }
+    if (role !== "unknown") {
+      messages.push({ role: role, text: html });
     }
+  });
 
-    function getBotResponse() {
-      var rawText = $("#textInput").val();
-      if (!rawText.trim()) return;
+  if (messages.length > 0 && firstUserMessage) {
+    chatHistory.push({
+      name: firstUserMessage.substring(0, 20) + (firstUserMessage.length > 20 ? "..." : ""),
+      messages: messages
+    });
+    currentChatIndex = chatHistory.length - 1;
+    if (chatHistory.length > 50) chatHistory.shift();
+  }
+}
 
-      var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
-      $("#chatbox").append(userHtml);
-      $("#textInput").val("");
-      $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+  function loadChat(index) {
+  $("#chatbox").empty();
+  let messages = chatHistory[index].messages;
+  if (messages) {
+    messages.forEach((msg, i) => {
+      let wrapper = $(msg.text); // Giữ nguyên HTML đã lưu
+      if (i > 0) wrapper.css("margin-top", "1em"); // Cách dòng
+      $("#chatbox").append(wrapper);
+    });
+    $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+  }
+}
+  function getBotResponse() {
+  var rawText = $("#textInput").val();
+  if (!rawText.trim()) return;
 
-      $.get("/get", { msg: rawText }).done(function(data) {
-        var botHtml = '<p class="botText"><span>' + data + '</span></p>';
-        $("#chatbox").append(botHtml);
-        $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
-      });
-    }
+  var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+  $("#chatbox").append(userHtml);
+  $("#textInput").val("");
+  $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
 
+  $.get("/get", { msg: rawText }).done(function(data) {
+    // Kiểm tra nếu phản hồi là HTML (ví dụ có thẻ div/a...) thì không bọc trong <span>
+    var isHtml = data.includes("<div") || data.includes("<a") || data.includes("<p");
+    var botHtml = isHtml
+      ? '<div class="botText">' + data + '</div>'
+      : '<p class="botText"><span>' + data + '</span></p>';
+
+    $("#chatbox").append(botHtml);
+    $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+  });
+}
     $("#textInput").keypress(function(e) {
       if (e.which == 13) {
         getBotResponse();
@@ -96,22 +113,21 @@
       });
     }
 
-    function showHistory() {
-      saveCurrentChat();
-      $("#chatbox").html('<p class="botText"><span>Xin chào, tôi là Chatterbot.</span></p>');
-      if (chatHistory.length > 0) {
-        let historyHtml = '<p class="botText"><span>Lịch sử cuộc trò chuyện:</span></p>';
-        historyHtml += '<ul>';
-        chatHistory.forEach((chat, index) => {
-          historyHtml += `<li onclick="loadChat(${index})">${chat.name}</li>`;
-        });
-        historyHtml += '</ul>';
-        $("#chatbox").append(historyHtml);
-      } else {
-        $("#chatbox").append('<p class="botText"><span>Không có lịch sử cuộc trò chuyện.</span></p>');
-      }
-      $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
-    }
+  function showHistory() {
+  $("#chatbox").html('<span class="botText">Xin chào, tôi là Chatterbot.</span>');
+  if (chatHistory.length > 0) {
+    let historyHtml = '<span class="botText">Lịch sử cuộc trò chuyện:</span>';
+    historyHtml += '<ul style="list-style-type: none; padding-left: 0;">';
+    chatHistory.forEach((chat, index) => {
+      historyHtml += `<li style="cursor: pointer; margin: 0.5em 0; background: rgba(255, 255, 255, 0.1); border-radius: 5px; padding: 5px; color: white;" onclick="loadChat(${index})">${chat.name}</li>`;
+    });
+    historyHtml += '</ul>';
+    $("#chatbox").append(historyHtml);
+  } else {
+    $("#chatbox").append('<span class="botText">Không có lịch sử cuộc trò chuyện.</span>');
+  }
+  $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+}
   </script>
 </body>
 </html>

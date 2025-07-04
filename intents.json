@@ -1,15 +1,11 @@
 {
   "chao_hoi": {
-    "keywords": ["xin chào", "hello", "hi", "chào bạn","chào"],
+    "keywords": ["xin chào", "hello", "hi", "chào bạn","chào","bạn khỏe không"],
     "responses": ["Chào bạn! Tôi có thể giúp gì?", "Xin chào, bạn cần hỗ trợ gì?"]
   },
   "goodbye": {
     "keywords": ["tạm biệt", "bye", "hẹn gặp lại"],
     "responses": ["Tạm biệt bạn nhé!", "Hẹn gặp lại!"]
-  },
- "ask_weather": {
-    "keywords": ["thời tiết", "trời hôm nay", "trời thế nào"],
-    "responses": ["Trời hôm nay nắng đẹp!", "Có vẻ thời tiết rất dễ chịu hôm nay."]
   },
   "ask_name": {
     "keywords": ["bạn là ai", "tên bạn là", "tên bot"],
@@ -21,34 +17,61 @@
   },
   "thank_you": {
     "keywords": ["cảm ơn", "thanks", "cám ơn"],
-    "responses": ["Không có gì, vui được giúp bạn!", "Cảm ơn bạn đã nói thế!"]
+    "responses": ["Không có gì, rất vui khi được giúp bạn!", "Cảm ơn bạn đã nói thế!"]
   },
   "ask_joke": {
     "keywords": ["kể chuyện cười", "đùa", "vui"],
     "responses": ["Tại sao con mèo lại chia tay với bạn trai? Vì nó phát hiện anh ta là... mèo lạ!", "Trà sữa thì ngọt, nhưng nụ cười bạn còn ngọt hơn!"]
   },
+  "infomation_vietnam":{
+    "keywords":["tôi muốn biết về việt nam", "thông tin việt nam"],
+    "responses":["Tuyệt vời! Việt Nam là một đất nước có bề dày lịch sử, văn hóa độc đáo và cảnh quan thiên nhiên tươi đẹp.\n\n Bạn có đang muốn tìm hiểu hay khám phá gì về đất nước tuyệt vời này không:\n Văn hóa, truyền thống, ẩm thực việt, món ăn Việt, địa điểm du lịch Việt Nam, du lịch Việt Nam, ngày lễ Việt Nam, Tết. "]
+  },
   "ask_vietnam_culture": {
     "keywords": ["văn hóa việt nam", "truyền thống việt nam", "phong tục việt"],
-    "responses": ["Văn hóa Việt Nam rất phong phú, từ Tết Nguyên Đán đến áo dài truyền thống. Bạn muốn biết thêm về gì?", "Việt Nam nổi tiếng với phở, bánh mì và những lễ hội đậm chất truyền thống!"]
+    "responses": ["Văn hóa Việt Nam rất phong phú, từ Tết Nguyên Đán đến áo dài truyền thống, ngoài ra Việt Nam nổi tiếng với phở, bánh mì và những lễ hội đậm chất truyền thống!.", "Những nét văn hóa phổ biến của Việt Nam bao gồm: tôn trọng gia đình và tổ tiên, ẩm thực đa dạng tinh tế (nổi bật là phở, bún chả, bánh mì), nghệ thuật dân gian phong phú (múa rối nước, quan họ), áo dài truyền thống duyên dáng, và lễ hội tưng bừng (đặc biệt là Tết Nguyên Đán)."]
   },
   "ask_vietnam_food": {
-    "keywords": ["món ăn việt nam", "ẩm thực việt", "ăn gì ở việt nam"],
-    "responses": ["Phở, bánh mì, bún chả... món nào cũng ngon! Bạn thích trải nghiệm hãy dùng thử các món này", "Ẩm thực Việt Nam thì tuyệt vời, từ nước mắm đến bánh xèo giòn rụm!"]
+    "keywords": ["món ăn việt nam", "ẩm thực việt", "ăn gì ở việt nam","ẩm thực"],
+    "responses": ["Ẩm thực Việt Nam nổi tiếng toàn cầu bởi sự hài hòa tinh tế giữa các hương vị (chua, cay, mặn, ngọt, béo) và nguyên liệu tươi ngon. Khác biệt với nhiều nền ẩm thực khác, món ăn Việt ưu tiên sự thanh đạm, ít dầu mỡ, và đặc biệt chú trọng việc sử dụng nhiều rau xanh, thảo mộc tươi cùng linh hồn là nước mắm.", "Mỗi miền Bắc, Trung, Nam lại mang một sắc thái riêng: miền Bắc thanh tao, nhẹ nhàng (Phở, Bún chả); miền Trung đậm đà, cay nồng (Bún bò Huế, Mì Quảng); và miền Nam ngọt ngào, phong phú (Hủ tiếu, Bánh xèo). Dù có sự khác biệt, tất cả đều thể hiện tính cộng đồng sâu sắc trong cách chế biến và thưởng thức, phản ánh lối sống giản dị nhưng đầy tinh tế của người Việt."]
   },
   "ask_vietnam_places": {
-    "keywords": ["địa điểm việt nam", "du lịch việt nam", "nơi đẹp ở việt nam"],
-    "responses": ["Việt Nam có Vịnh Hạ Long, Hội An cổ kính, hay Đà Lạt mộng mơ. Bạn hãy đi khám phá thử xem", "Từ Hà Nội sôi động đến Phú Quốc thơ mộng, Việt Nam có quá nhiều nơi đẹp để đi!"]
+    "keywords": ["địa điểm du lịch việt nam", "du lịch việt nam", "nơi đẹp ở việt nam","du lịch"],
+    "responses": ["Việt Nam có Vịnh Hạ Long, Hội An cổ kính, hay Đà Lạt mộng mơ. Bạn hãy đi khám phá nếu có cơ hội", "Từ Hà Nội sôi động đến Phú Quốc thơ mộng, Việt Nam có quá nhiều nơi đẹp để trải nghiệm!"]
   },
   "ask_vietnam_language": {
-    "keywords": ["tiếng việt", "ngôn ngữ việt nam", "học tiếng việt"],
-    "responses": ["Tiếng Việt thì thú vị lắm, Xin chào, Chào bạn, Bạn khỏe không ?, Bạn tên là gì? ", "Xin chào, cảm ơn, tạm biệt – đó là vài từ cơ bản trong tiếng Việt!"]
+    "keywords": ["tiếng việt", "ngôn ngữ việt nam", "học tiếng việt","ngôn ngữ"],
+    "responses": [
+      "Tiếng Việt thì thú vị lắm.Hãy học qua 1 số từ giao tiếp cơ bản trong tiếng việt:\n Xin chào, Chào bạn, Bạn khỏe không? , Bạn tên là gì?"
+    ]
   },
-  "ask_history": {
-    "keywords": ["lịch sử", "sự kiện lịch sử", "hỏi về quá khứ"],
-    "responses": ["Lịch sử Việt Nam có rất nhiều sự kiện thú vị, như chiến thắng Điện Biên Phủ."]
-  },
+ "ask_history": {
+  "keywords": ["lịch sử việt nam", "sự kiện lịch sử việt nam", "hỏi về quá khứ việt nam"],
+  "responses": ["Lịch sử Việt Nam có rất nhiều sự kiện thú vị, lịch sử Việt Nam là một dòng chảy dài và phức tạp, được chia thành nhiều giai đoạn chính.\n\n Thời kỳ Tiền sử\n Thời kỳ Cổ đại (Dựng nước)\n Thời kỳ Bắc thuộc và đấu tranh giành độc lập (179 TCN – 939 SCN)\n Kháng chiến chống Pháp (1946 – 1954)\n Kháng chiến chống Mỹ(1954 – 1975).\n\n Bạn có muốn biết thêm về các thời kỳ này, hãy chọn thời kỳ nào bạn muốn nguyên cứu tôi sẽ tìm thông tin cho bạn"]
+},
+  "ask_history_1": {
+  "keywords": ["thời kỳ tiền sử", "biết về thời kỳ tiền sử"],
+  "responses": ["Thời kỳ Tiền sử (Hàng trăm nghìn năm trước - khoảng 4.000 năm trước).\n\n Thời đại đồ đá: Bao gồm các nền văn hóa như Núi Đọ, Thần Sa, Sơn Vi (Đá cũ) và Hòa Bình, Bắc Sơn (Đá mới).\n\n Thời đại đồ đồng: Nổi bật với văn hóa Phùng Nguyên, Đồng Đậu, Gò Mun, và đỉnh cao là văn hóa Đông Sơn (Thời đại đồ sắt sớm), gắn liền với sự ra đời của trống đồng."]
+},
+  "ask_history_2": {
+  "keywords": ["thời kỳ cổ đại", "dựng nước", "biết về thời kỳ dựng nước", "nhà nước văn lang", "nhà nước âu lạc", "an dương vương"],
+  "responses": ["Thời kỳ Cổ đại (Dựng nước - Khoảng 4.000 năm trước – 179 TCN)\n\nGiai đoạn này chứng kiến sự ra đời của những nhà nước đầu tiên, thoát khỏi hình thái bộ lạc:\n\nNhà nước Văn Lang: Gắn liền với truyền thuyết về các vua Hùng, đây được coi là nhà nước đầu tiên của người Việt, định đô tại Phong Châu (Phú Thọ ngày nay). Văn Lang hình thành trên cơ sở văn hóa Đông Sơn phát triển, với nền kinh tế nông nghiệp lúa nước và nghề luyện kim phát triển.\n\nNhà nước Âu Lạc: Sau khi Thục Phán (An Dương Vương) thống nhất Âu Việt và Lạc Việt, nhà nước Âu Lạc ra đời, định đô tại Cổ Loa với công trình thành lũy kiên cố bậc nhất thời bấy giờ. Tuy nhiên, Âu Lạc tồn tại không lâu trước sự xâm lược của Triệu Đà."]
+},
+"ask_history_3": {
+  "keywords": ["thời kỳ bắc thuộc", "đấu tranh giành độc lập", "biết về bắc thuộc", "hai bà trưng", "ngô quyền", "lý bí"],
+  "responses": ["Thời kỳ Bắc thuộc và Đấu tranh giành độc lập (179 TCN – 939 SCN)\n\nĐây là giai đoạn đau thương nhưng cũng đầy anh hùng của dân tộc, kéo dài hơn một nghìn năm dưới ách đô hộ của các triều đại phong kiến phương Bắc (như Hán, Đường). Bất chấp chính sách đồng hóa và bóc lột hà khắc, tinh thần quật cường của người Việt không ngừng trỗi dậy:\n\nKhởi nghĩa Hai Bà Trưng (năm 40 SCN): Khôi phục nền tự chủ trong thời gian ngắn, mở đầu truyền thống đấu tranh.\n\nKhởi nghĩa Lý Bí (thế kỷ VI): Lập nên nhà nước Vạn Xuân, khẳng định ý chí độc lập.\n\nChiến thắng Bạch Đằng năm 938 của Ngô Quyền: Đập tan quân Nam Hán, chấm dứt thời kỳ Bắc thuộc và mở ra kỷ nguyên độc lập."]
+},
+"ask_history_4": {
+  "keywords": ["thời kỳ kháng chiến chống pháp", "biết về kháng chiến chống pháp", "điện biên phủ", "1946 – 1954","kháng chiến chống pháp"],
+  "responses": ["Kháng chiến chống Pháp (1946 – 1954)\n\nDiễn ra để bảo vệ thành quả Cách mạng tháng Tám. Chiến thắng lừng lẫy tại Điện Biên Phủ đã buộc Pháp phải ký Hiệp định Geneva, chấm dứt hoàn toàn sự đô hộ của Pháp."]
+},
+"ask_history_5": {
+  "keywords": ["thời kỳ kháng chiến chống mỹ", "biết về kháng chiến chống mỹ", "chiến dịch hồ chí minh", "1954 – 1975", "kháng chiến chống mỹ"],
+  "responses": [
+    "Kháng chiến chống Mỹ, cứu nước (1954 – 1975)\n\nĐất nước bị chia cắt, miền Nam tiếp tục cuộc đấu tranh chống đế quốc Mỹ và chính quyền Sài Gòn. Với sự lãnh đạo tài tình của Đảng và nhân dân cả nước, Chiến dịch Hồ Chí Minh lịch sử năm 1975 đã giải phóng hoàn toàn miền Nam, thống nhất đất nước, hoàn thành sự nghiệp giải phóng dân tộc."]
+},
   "ask_vietnam_holidays": {
     "keywords": ["ngày lễ việt nam", "tết", "nghỉ lễ lớn nhất việt nam"],
-    "responses": ["Tết Nguyên Đán là lễ lớn nhất, mọi người quây quần ăn bánh chưng, lì xì. Bạn thích lễ nào ở Việt Nam?", "Ngoài Tết, Việt Nam còn có lễ Quốc khánh 2/9, rất vui!"]
+    "responses": ["Tết Nguyên Đán là lễ lớn nhất, mọi người quây quần ăn bánh chưng, lì xì. Tết là khoảng thời gian để mọi người gác lại bộn bề công việc, nghỉ ngơi, vui chơi và tận hưởng không khí ấm cúng của mùa xuân, chuẩn bị cho một năm mới an lành, thịnh vượng.","Tết truyền thống của Việt Nam bao gồm dọn dẹp nhà cửa, thờ cúng tổ tiên, gói bánh chưng, bánh tét, trang trí hoa mai, đào, quất, chúc Tết và lì xì, cùng với việc đi lễ chùa, tất cả nhằm đón một năm mới an lành, thịnh vượng và sum vầy bên gia đình."]
   }
 }

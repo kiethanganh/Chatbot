@@ -50,8 +50,8 @@ body, html {
 /* Header cho các nút điều khiển */
 .chatbox-header {
   position: absolute;
-  top: -50px;
-  right: 20px;
+  top: -45px;
+  right: 10px;
   display: flex;
   justify-content: flex-end;
 }
@@ -157,4 +157,13 @@ body, html {
 }
 .userText {
   text-align: right;
+}
+.botText a {
+  color: #00ffff;
+  text-decoration: underline;
+}
+
+.botText small {
+  color: #ccc;
+  font-size: 12px;
 }
